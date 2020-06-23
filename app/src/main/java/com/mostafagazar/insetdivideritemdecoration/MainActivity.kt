@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         viewManager = LinearLayoutManager(this)
-        val dummyDataset = (1..60).map { "Item #$it" }.toTypedArray()
+        val dummyDataset = (1..80).map { "Item #$it" }.toTypedArray()
         viewAdapter = MyAdapter(dummyDataset)
 
         recyclerView = findViewById<RecyclerView>(R.id.recycler_view).apply {
@@ -27,14 +27,14 @@ class MainActivity : AppCompatActivity() {
 
             adapter = viewAdapter
 
-            addItemDecoration(InsetDividerItemDecoration(context, 64.toPx()))
+            addItemDecoration(GradientItemDecoration(context))
         }
     }
 
     class MyAdapter(private val dataset: Array<String>) :
         RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
 
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyAdapter.MyViewHolder {
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
             val textView = LayoutInflater.from(parent.context)
                     .inflate(android.R.layout.simple_list_item_1, parent, false) as TextView
 
