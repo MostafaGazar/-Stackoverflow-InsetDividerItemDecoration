@@ -1,1 +1,1 @@
-![](screen.png)
+![](screen.gif)
